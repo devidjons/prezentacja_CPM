@@ -87,3 +87,15 @@ maximum([3, 7, 5, 2, 9, 1]) = 9
 
 ## Slide 11: Question
 Who liked the short introduction to Monoids?
+
+## Slide 12: Citibank
+- Interview process
+- What was good?
+- What was bad?
+  - Explain why it was really bad
+- How and why left?
+
+## Slide 13: What's disappointing about working in bank
+- Quality of models
+- Importance of models
+- Potential duties, even with the career growth
