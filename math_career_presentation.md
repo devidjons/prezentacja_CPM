@@ -68,7 +68,7 @@
 - What was bad?
 - How and why left?
 
-## Slide 9: Monoid and Axiomatics
+## Slide 9: Monoid and Mathematics and Programming
 **Associative Property Definition:**
 - An operation ⊕ is associative if: (a ⊕ b) ⊕ c = a ⊕ (b ⊕ c)
 
