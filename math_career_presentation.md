@@ -96,7 +96,10 @@ Who liked the short introduction to Monoids?
     - Brainteaser about fruits
 - How and why left?
 
-## Slide 13: What's disappointing about working in bank
+## Slide 13: Question
+Who liked brainteaser about fruits?
+
+## Slide 14: What's disappointing about working in bank
 https://www.youtube.com/shorts/4STft4geMWY
 
 - Quality of models
@@ -106,10 +109,14 @@ https://www.youtube.com/shorts/4STft4geMWY
 - Potential duties
   - 240 tables
 
-## Slide 14: Pentech
+## Slide 15: Pentech
 - How did I get the job?
 - What am I currently doing?
 - Great parts about my job
   - Tools
   - Culture regarding working from home
   - Potential problems to solve
+
+## Slide 16: Questions
+
+## Slide 17: Thank You
