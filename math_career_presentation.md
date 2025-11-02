@@ -96,6 +96,11 @@ Who liked the short introduction to Monoids?
 - How and why left?
 
 ## Slide 13: What's disappointing about working in bank
+https://www.youtube.com/shorts/4STft4geMWY
+
 - Quality of models
+  - Price of oil
 - Importance of models
-- Potential duties, even with the career growth
+  - % multiplication by 2
+- Potential duties
+  - 240 tables
