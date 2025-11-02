@@ -106,6 +106,10 @@ https://www.youtube.com/shorts/4STft4geMWY
 - Potential duties
   - 240 tables
 
-## Slide 14: Pentec
+## Slide 14: Pentech
 - How did I get the job?
 - What am I currently doing?
+- Great parts about my job
+  - Tools
+  - Culture regarding working from home
+  - Potential problems to solve
