@@ -31,3 +31,16 @@
 | Programming in R                 | Calculus                 | Abstract Algebra       |
 | Programming in Python            | Stochastic Processes     | Stochastic Control     |
 | Programming in Excel             |                          | Differential Equations |
+| Financial Mathematics            |                          |                       |
+
+## Slide 5: Current Job Useful Classes
+| Current Job Useful Classes |
+|----------------------------|
+| Statistics                 |
+| Programming in Python      |
+| Probability Theory         |
+| Algebra                    |
+| Stochastic Control         |
+| Financial Mathematics      |
+| Calculus                   |
+| Monte Carlo Methods        |
