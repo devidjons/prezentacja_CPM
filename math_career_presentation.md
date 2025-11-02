@@ -44,3 +44,19 @@
 | Financial Mathematics      |
 | Calculus                   |
 | Monte Carlo Methods        |
+
+## Slide 6: My Career
+- UPS
+- Superfund
+- Citibank
+- Pentech AI
+
+## Slide 7: UBS
+- Interview Process
+  - Financial Mathematics 20%
+  - 40% of Econometrics
+  - 40% of Programming in R
+- What was good?
+- What was bad?
+- Funny story about English
+- How and why left?
