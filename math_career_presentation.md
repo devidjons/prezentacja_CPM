@@ -67,3 +67,21 @@
   - Fun fact about functional programming
 - What was bad?
 - How and why left?
+
+## Slide 9: Monoid and Axiomatics
+**Associative Property Definition:**
+- An operation ⊕ is associative if: (a ⊕ b) ⊕ c = a ⊕ (b ⊕ c)
+
+**Maximum Operation Example:**
+- max(max(a, b), c) = max(a, max(b, c))
+- Example: max(max(3, 7), 5) = max(7, 5) = 7
+- Example: max(3, max(7, 5)) = max(3, 7) = 7
+
+**Maximum of a List in Python:**
+```python
+from functools import reduce
+
+numbers = [3, 7, 5, 2, 9, 1]
+result = reduce(max, numbers)
+# result = 9
+```
