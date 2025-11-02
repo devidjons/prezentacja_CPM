@@ -77,11 +77,7 @@
 - Example: max(max(3, 7), 5) = max(7, 5) = 7
 - Example: max(3, max(7, 5)) = max(3, 7) = 7
 
-**Maximum of a List in Python:**
-```python
-from functools import reduce
-
-numbers = [3, 7, 5, 2, 9, 1]
-result = reduce(max, numbers)
-# result = 9
+**Maximum of a List:**
+```
+maximum([3, 7, 5, 2, 9, 1]) = 9
 ```
