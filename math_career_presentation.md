@@ -93,6 +93,7 @@ Who liked the short introduction to Monoids?
 - What was good?
 - What was bad?
   - Explain why it was really bad
+    - Brainteaser about fruits
 - How and why left?
 
 ## Slide 13: What's disappointing about working in bank
@@ -104,3 +105,7 @@ https://www.youtube.com/shorts/4STft4geMWY
   - % multiplication by 2
 - Potential duties
   - 240 tables
+
+## Slide 14: Pentec
+- How did I get the job?
+- What am I currently doing?
