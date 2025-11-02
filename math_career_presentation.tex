@@ -1,0 +1,249 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+\usecolortheme{beaver}
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{listings}
+
+\title{Co po matematyce?}
+\author{Vlad Snozyk}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Wprowadzenie}
+  \begin{itemize}
+    \item Studia na uczelni
+    \item Pierwsza praca
+    \item Ogólne doświadczenia zawodowe
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Plan prezentacji}
+  \begin{itemize}
+    \item Preferencje osobiste
+    \item Wybory i ścieżka kariery
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Ulubione zajęcia}
+  \begin{columns}[T]
+    \begin{column}{0.33\textwidth}
+      \textbf{Świetne}
+      \begin{itemize}
+        \item Matematyka dyskretna
+        \item Teoria prawdopodobieństwa
+        \item Sieci neuronowe
+        \item Algebra
+        \item Topologia
+        \item Algebra abstrakcyjna
+        \item Sterowanie stochastyczne
+        \item Matematyka finansowa
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \textbf{W porządku}
+      \begin{itemize}
+        \item Analiza matematyczna
+        \item Równania różniczkowe
+        \item Programowanie w Pythonie
+        \item Programowanie w~R
+        \item Logika matematyczna
+        \item Statystyka
+        \item Procesy stochastyczne
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \textbf{Nieprzypadły do gustu}
+      \begin{itemize}
+        \item Programowanie w~Excelu
+        \item Ekonometria
+        \item Mikroekonomia
+        \item Analiza IV
+        \item Programowanie w~MATLAB-ie
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Przydatność zajęć w pierwszej pracy}
+  \begin{columns}[T]
+    \begin{column}{0.34\textwidth}
+      \textbf{Bardzo przydatne}
+      \begin{itemize}
+        \item Ekonometria
+        \item Statystyka
+        \item Programowanie w~R
+        \item Programowanie w~Pythonie
+        \item Programowanie w~Excelu
+        \item Matematyka finansowa
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \textbf{Trochę przydatne}
+      \begin{itemize}
+        \item Teoria prawdopodobieństwa
+        \item Algebra
+        \item Analiza matematyczna
+        \item Procesy stochastyczne
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.33\textwidth}
+      \textbf{Nieprzydatne}
+      \begin{itemize}
+        \item Matematyka dyskretna
+        \item Topologia
+        \item Algebra abstrakcyjna
+        \item Sterowanie stochastyczne
+        \item Równania różniczkowe
+      \end{itemize}
+    \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}{Przydatne zajęcia w obecnej pracy}
+  \begin{itemize}
+    \item Statystyka
+    \item Programowanie w~Pythonie
+    \item Teoria prawdopodobieństwa
+    \item Algebra
+    \item Sterowanie stochastyczne
+    \item Matematyka finansowa
+    \item Analiza matematyczna
+    \item Metody Monte Carlo
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Moja ścieżka kariery}
+  \begin{itemize}
+    \item UBS
+    \item Superfund
+    \item Citibank
+    \item Pentech AI
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{UBS}
+  \begin{itemize}
+    \item Proces rekrutacji
+      \begin{itemize}
+        \item Matematyka finansowa: 20\%
+        \item Ekonometria: 40\%
+        \item Programowanie w~R: 40\%
+      \end{itemize}
+    \item Co było dobre?
+    \item Co było słabe?
+    \item Zabawna historia o języku angielskim
+    \item Dlaczego i jak odszedłem?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pytanie do publiczności}
+  Kto polubił historię o języku angielskim?
+\end{frame}
+
+\begin{frame}{Superfund}
+  \begin{itemize}
+    \item Proces rekrutacji
+    \item Co było dobre?
+      \begin{itemize}
+        \item Ciekawostka o programowaniu funkcyjnym
+      \end{itemize}
+    \item Co było słabe?
+    \item Dlaczego i jak odszedłem?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Monoidy: matematyka i programowanie}
+  \begin{block}{Definicja własności łączności}
+    Działanie $\oplus$ jest łączne, jeśli \((a \oplus b) \oplus c = a \oplus (b \oplus c)\).
+  \end{block}
+  \begin{block}{Przykład z maksimum}
+    \begin{itemize}
+      \item $\max(\max(a,b),c) = \max(a,\max(b,c))$
+      \item $\max(\max(3,7),5) = \max(7,5) = 7$
+      \item $\max(3,\max(7,5)) = \max(3,7) = 7$
+    \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Maksimum listy}
+  \begin{block}{Przykład}
+\begin{verbatim}
+maximum([3, 7, 5, 2, 9, 1]) = 9
+\end{verbatim}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Pytanie do publiczności}
+  Kto polubił krótkie wprowadzenie do monoidów?
+\end{frame}
+
+\begin{frame}{Citibank}
+  \begin{itemize}
+    \item Proces rekrutacji
+    \item Co było dobre?
+    \item Co było słabe?
+      \begin{itemize}
+        \item Dlaczego było naprawdę źle
+        \item Zagadki rekrutacyjne o owocach
+      \end{itemize}
+    \item Dlaczego i jak odszedłem?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pytanie do publiczności}
+  Kto polubił zagadkę o owocach?
+\end{frame}
+
+\begin{frame}{Co rozczarowuje w pracy w banku}
+  \begin{itemize}
+    \item https://www.youtube.com/shorts/4STft4geMWY
+    \item Jakość modeli
+      \begin{itemize}
+        \item Cena ropy naftowej
+      \end{itemize}
+    \item Znaczenie modeli
+      \begin{itemize}
+        \item Procenty mnożone przez~2
+      \end{itemize}
+    \item Potencjalne obowiązki
+      \begin{itemize}
+        \item 240 arkuszy kalkulacyjnych
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pentech AI}
+  \begin{itemize}
+    \item Jak dostałem tę pracę?
+    \item Czym się obecnie zajmuję?
+    \item Najlepsze elementy mojej pracy
+      \begin{itemize}
+        \item Narzędzia
+        \item Kultura pracy zdalnej
+        \item Problemy do rozwiązania
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Pytania}
+  \centering
+  Czy są pytania?
+\end{frame}
+
+\begin{frame}{Dziękuję}
+  \centering
+  Dziękuję za uwagę!
+\end{frame}
+
+\end{document}
