@@ -46,7 +46,7 @@
 | Monte Carlo Methods        |
 
 ## Slide 6: My Career
-- UPS
+- UBS
 - Superfund
 - Citibank
 - Pentech AI
