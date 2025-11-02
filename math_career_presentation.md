@@ -61,7 +61,10 @@
 - Funny story about English
 - How and why left?
 
-## Slide 8: Superfund
+## Slide 8: Question
+Who liked the story about English?
+
+## Slide 9: Superfund
 - Interview process
 - What was good?
   - Fun fact about functional programming
@@ -81,3 +84,6 @@
 ```
 maximum([3, 7, 5, 2, 9, 1]) = 9
 ```
+
+## Slide 11: Question
+Who liked the short introduction to Monoids?
