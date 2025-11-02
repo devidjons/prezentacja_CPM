@@ -60,3 +60,10 @@
 - What was bad?
 - Funny story about English
 - How and why left?
+
+## Slide 8: Superfund
+- Interview process
+- What was good?
+  - Fun fact about functional programming
+- What was bad?
+- How and why left?
