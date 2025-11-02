@@ -22,3 +22,12 @@
 | Abstract Algebra      | Statistics               |                       |
 | Stochastic Control    | Stochastic Processes     |                       |
 | Financial Mathematics |                          |                       |
+
+## Slide 4: Useful Classes for the First Job
+| Very Useful, Directly Applicable | A Little Bit Useful      | Not Used At All       |
+|----------------------------------|--------------------------|------------------------|
+| Econometry                       | Probability Theory       | Discrete Mathematics   |
+| Statistics                       | Algebra                  | Topology               |
+| Programming in R                 | Calculus                 | Abstract Algebra       |
+| Programming in Python            | Stochastic Processes     | Stochastic Control     |
+| Programming in Excel             |                          | Differential Equations |
