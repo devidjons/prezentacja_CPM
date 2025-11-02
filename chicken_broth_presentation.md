@@ -1,3 +1,10 @@
+
+# How to Present the Deck
+
+1. **Open the ready-to-use slideshow**: double-click `chicken_broth_presentation.html` or open it in any modern browser. Use the left/right arrow keys or space bar to advance slides.
+2. **Share via Google Slides**: copy the slide content into a new Google Slides file (File → New → Presentation), then apply any theme you like.
+3. **Import into PowerPoint or Canva**: paste the markdown content into a new deck and style it with their templates, or export the HTML deck as PDF (Ctrl/Cmd + P → Save as PDF) before uploading.
+
 # Slide 1: Title
 - **Chicken Broth Masterclass**
 - Comforting, nourishing, and easy to prepare
