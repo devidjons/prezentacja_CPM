@@ -1,15 +1,16 @@
 \documentclass{beamer}
-\usetheme{Madrid}
-\usecolortheme{beaver}
+\usetheme{metropolis}
 \setbeamertemplate{navigation symbols}{}
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[polish]{babel}
-\usepackage{booktabs}
-\usepackage{array}
-\usepackage{listings}
 \usepackage{hyperref}
+\usepackage{xcolor}
+
+% Metropolis theme options
+\metroset{block=fill}
+\metroset{progressbar=frametitle}
 
 \title{Co po matematyce?}
 \author{Vlad Snozyk}
@@ -21,6 +22,7 @@
   \titlepage
 \end{frame}
 
+% Slide 1
 \begin{frame}{Wprowadzenie}
   \begin{itemize}
     \item Studia na uczelni
@@ -29,89 +31,96 @@
   \end{itemize}
 \end{frame}
 
+% Slide 2
 \begin{frame}{Plan prezentacji}
   \begin{itemize}
     \item Preferencje osobiste
-    \item Wybory i ścieżka kariery
+    \item Decyzje podjęte oraz ścieżka zawodowa
   \end{itemize}
 \end{frame}
 
+% Slide 3
 \begin{frame}{Ulubione zajęcia}
+  \small
   \begin{columns}[T]
     \begin{column}{0.33\textwidth}
       \textbf{Świetne}
       \begin{itemize}
-        \item Matematyka dyskretna
-        \item Teoria prawdopodobieństwa
-        \item Sieci neuronowe
-        \item Algebra
-        \item Topologia
-        \item Algebra abstrakcyjna
-        \item Sterowanie stochastyczne
-        \item Matematyka finansowa
+        \item \textcolor{green!70!black}{Matematyka dyskretna}
+        \item \textcolor{green!70!black}{Teoria prawdopodobieństwa}
+        \item \textcolor{green!70!black}{Sieci neuronowe}
+        \item \textcolor{green!70!black}{Algebra}
+        \item \textcolor{green!70!black}{Topologia}
+        \item \textcolor{green!70!black}{Algebra abstrakcyjna}
+        \item \textcolor{green!70!black}{Sterowanie stochastyczne}
+        \item \textcolor{green!70!black}{Matematyka finansowa}
       \end{itemize}
     \end{column}
     \begin{column}{0.33\textwidth}
-      \textbf{W porządku}
+      \textbf{W~porządku}
       \begin{itemize}
-        \item Analiza matematyczna
-        \item Równania różniczkowe
-        \item Programowanie w Pythonie
-        \item Programowanie w~R
-        \item Logika matematyczna
-        \item Statystyka
-        \item Procesy stochastyczne
+        \item \textcolor{orange}{Analiza matematyczna}
+        \item \textcolor{orange}{Równania różniczkowe}
+        \item \textcolor{orange}{Programowanie w~Pythonie}
+        \item \textcolor{orange}{Programowanie w~R}
+        \item \textcolor{orange}{Logika matematyczna}
+        \item \textcolor{orange}{Statystyka}
+        \item \textcolor{orange}{Procesy stochastyczne}
       \end{itemize}
     \end{column}
     \begin{column}{0.33\textwidth}
-      \textbf{Nieprzypadły do gustu}
+      \textbf{Nie przypadły do gustu}
       \begin{itemize}
-        \item Programowanie w~Excelu
-        \item Ekonometria
-        \item Mikroekonomia
-        \item Analiza IV
-        \item Programowanie w~MATLAB-ie
+        \item \textcolor{red}{Programowanie w~Excelu}
+        \item \textcolor{red}{Ekonometria}
+        \item \textcolor{red}{Mikroekonomia}
+        \item \textcolor{red}{Analiza matematyczna IV}
+        \item \textcolor{red}{Programowanie w~Matlabie}
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Przydatność zajęć w pierwszej pracy}
+% Slide 4
+\begin{frame}{Przydatność zajęć w~pierwszej pracy}
+  \small
   \begin{columns}[T]
     \begin{column}{0.34\textwidth}
       \textbf{Bardzo przydatne}
       \begin{itemize}
-        \item Ekonometria
-        \item Statystyka
-        \item Programowanie w~R
-        \item Programowanie w~Pythonie
-        \item Programowanie w~Excelu
-        \item Matematyka finansowa
+        \item \textcolor{red}{Ekonometria}
+        \item \textcolor{orange}{Statystyka}
+        \item \textcolor{orange}{Programowanie w~R}
+        \item \textcolor{orange}{Programowanie w~Pythonie}
+        \item \textcolor{red}{Programowanie w~Excelu}
+        \item \textcolor{green!70!black}{Matematyka finansowa}
       \end{itemize}
     \end{column}
     \begin{column}{0.33\textwidth}
       \textbf{Trochę przydatne}
       \begin{itemize}
-        \item Teoria prawdopodobieństwa
-        \item Algebra
-        \item Analiza matematyczna
-        \item Procesy stochastyczne
+        \item \textcolor{green!70!black}{Teoria prawdopodobieństwa}
+        \item \textcolor{green!70!black}{Algebra}
+        \item \textcolor{orange}{Analiza matematyczna}
+        \item \textcolor{orange}{Procesy stochastyczne}
       \end{itemize}
     \end{column}
     \begin{column}{0.33\textwidth}
       \textbf{Nieprzydatne}
       \begin{itemize}
-        \item Matematyka dyskretna
-        \item Topologia
-        \item Algebra abstrakcyjna
-        \item Sterowanie stochastyczne
-        \item Równania różniczkowe
+        \item \textcolor{green!70!black}{Matematyka dyskretna}
+        \item \textcolor{green!70!black}{Topologia}
+        \item \textcolor{green!70!black}{Algebra abstrakcyjna}
+        \item \textcolor{green!70!black}{Sterowanie stochastyczne}
+        \item \textcolor{orange}{Równania różniczkowe}
       \end{itemize}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Przydatne zajęcia w obecnej pracy}
+% Slide 5
+\begin{frame}{Przydatne zajęcia w~obecnej pracy}
+  \small
   \begin{itemize}
     \item Statystyka
     \item Programowanie w~Pythonie
@@ -124,6 +133,7 @@
   \end{itemize}
 \end{frame}
 
+% Slide 6
 \begin{frame}{Moja ścieżka kariery}
   \begin{itemize}
     \item UBS
@@ -133,6 +143,7 @@
   \end{itemize}
 \end{frame}
 
+% Slide 7
 \begin{frame}{UBS}
   \begin{itemize}
     \item Proces rekrutacji
@@ -143,72 +154,84 @@
       \end{itemize}
     \item Co było dobre?
     \item Co było słabe?
-    \item Zabawna historia o języku angielskim
-    \item Dlaczego i jak odszedłem?
+    \item Zabawna historia o~języku angielskim
+    \item Dlaczego i~w~jaki sposób odszedłem?
   \end{itemize}
 \end{frame}
 
+% Slide 8
 \begin{frame}{Pytanie do publiczności}
-  Kto polubił historię o języku angielskim?
+  \centering
+  \Large
+  Komu spodobała się historia o~języku angielskim?
 \end{frame}
 
+% Slide 9
 \begin{frame}{Superfund}
   \begin{itemize}
     \item Proces rekrutacji
     \item Co było dobre?
       \begin{itemize}
-        \item Ciekawostka o programowaniu funkcyjnym
+        \item Ciekawostka o~programowaniu funkcyjnym
       \end{itemize}
     \item Co było słabe?
-    \item Dlaczego i jak odszedłem?
+    \item Dlaczego i~w~jaki sposób odszedłem?
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Monoidy: matematyka i programowanie}
-  \begin{block}{Definicja własności łączności}
-    Działanie $\oplus$ jest łączne, jeśli \((a \oplus b) \oplus c = a \oplus (b \oplus c)\).
-  \end{block}
-  \begin{block}{Przykład z maksimum}
-    \begin{itemize}
-      \item $\max(\max(a,b),c) = \max(a,\max(b,c))$
-      \item $\max(\max(3,7),5) = \max(7,5) = 7$
-      \item $\max(3,\max(7,5)) = \max(3,7) = 7$
-    \end{itemize}
-  \end{block}
+% Slide 10
+\begin{frame}{Monoidy: matematyka i~programowanie}
+  \textbf{Definicja własności łączności działania:}
+  \begin{itemize}
+    \item Działanie $\oplus$ jest łączne, jeśli: $(a \oplus b) \oplus c = a \oplus (b \oplus c)$
+  \end{itemize}
+
+  \vspace{0.5cm}
+  \textbf{Przykład z~funkcją maksimum:}
+  \begin{itemize}
+    \item $\max(\max(a, b), c) = \max(a, \max(b, c))$
+    \item Przykład: $\max(\max(3, 7), 5) = \max(7, 5) = 7$
+    \item Przykład: $\max(3, \max(7, 5)) = \max(3, 7) = 7$
+  \end{itemize}
+
+  \vspace{0.5cm}
+  \textbf{Maksimum listy:}
+
+  \texttt{maximum([3, 7, 5, 2, 9, 1]) = 9}
 \end{frame}
 
-\begin{frame}[fragile]{Maksimum listy}
-  \begin{block}{Przykład}
-\begin{verbatim}
-maximum([3, 7, 5, 2, 9, 1]) = 9
-\end{verbatim}
-  \end{block}
-\end{frame}
-
+% Slide 11
 \begin{frame}{Pytanie do publiczności}
-  Kto polubił krótkie wprowadzenie do monoidów?
+  \centering
+  \Large
+  Komu spodobało się krótkie wprowadzenie do monoidów?
 \end{frame}
 
+% Slide 12
 \begin{frame}{Citibank}
   \begin{itemize}
     \item Proces rekrutacji
     \item Co było dobre?
     \item Co było słabe?
       \begin{itemize}
-        \item Dlaczego było naprawdę źle
+        \item Dlaczego było to naprawdę problematyczne
           \begin{itemize}
-            \item Zagadki rekrutacyjne o owocach
+            \item Zagadki rekrutacyjne o~owocach
           \end{itemize}
       \end{itemize}
-    \item Dlaczego i jak odszedłem?
+    \item Dlaczego i~w~jaki sposób odszedłem?
   \end{itemize}
 \end{frame}
 
+% Slide 13
 \begin{frame}{Pytanie do publiczności}
-  Kto polubił zagadkę o owocach?
+  \centering
+  \Large
+  Komu spodobała się zagadka o~owocach?
 \end{frame}
 
-\begin{frame}{Co rozczarowuje w pracy w banku}
+% Slide 14
+\begin{frame}{Co rozczarowuje w~pracy bankowej}
   \begin{itemize}
     \item \url{https://www.youtube.com/shorts/4STft4geMWY}
     \item Jakość modeli
@@ -226,11 +249,12 @@ maximum([3, 7, 5, 2, 9, 1]) = 9
   \end{itemize}
 \end{frame}
 
+% Slide 15
 \begin{frame}{Pentech AI}
   \begin{itemize}
-    \item Jak dostałem tę pracę?
+    \item Jak zdobyłem tę pracę?
     \item Czym się obecnie zajmuję?
-    \item Najlepsze elementy mojej pracy
+    \item Najlepsze aspekty mojej pracy
       \begin{itemize}
         \item Narzędzia
         \item Kultura pracy zdalnej
@@ -239,13 +263,17 @@ maximum([3, 7, 5, 2, 9, 1]) = 9
   \end{itemize}
 \end{frame}
 
+% Slide 16
 \begin{frame}{Pytania}
   \centering
-  Czy są pytania?
+  \Large
+  Czy są jakieś pytania?
 \end{frame}
 
+% Slide 17
 \begin{frame}{Dziękuję}
   \centering
+  \Large
   Dziękuję za uwagę!
 \end{frame}
 
