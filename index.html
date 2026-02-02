@@ -10,335 +10,544 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            background: #faf8f5;
             min-height: 100vh;
-            padding: 40px 20px;
-            color: #e8e8e8;
+            color: #2d3748;
+            display: flex;
         }
-        
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
+
+        /* Left Sidebar - was TOP */
+        .sidebar {
+            width: 280px;
+            min-height: 100vh;
+            background: linear-gradient(180deg, #1a365d 0%, #2c5282 50%, #2b6cb0 100%);
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
         }
-        
-        h1 {
-            text-align: center;
-            font-size: 2.2rem;
+
+        .sidebar h1 {
+            font-size: 1.6rem;
             font-weight: 400;
-            letter-spacing: 2px;
-            margin-bottom: 50px;
+            letter-spacing: 1px;
             color: #fff;
+            line-height: 1.4;
+            margin-bottom: 30px;
+            padding-bottom: 25px;
             border-bottom: 1px solid rgba(255,255,255,0.2);
-            padding-bottom: 20px;
         }
-        
-        .option-card {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+
+        .sidebar-nav {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .sidebar-nav li {
+            padding: 12px 0;
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: color 0.2s;
+        }
+
+        .sidebar-nav li:hover {
+            color: #fff;
+        }
+
+        .sidebar-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.15);
+            padding: 4px 10px;
             border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 25px;
-            backdrop-filter: blur(10px);
+            font-size: 0.75rem;
+            color: #e2e8f0;
+            margin-top: 20px;
+        }
+
+        /* Main Content Area */
+        .main-content {
+            margin-left: 280px;
+            flex: 1;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Row - Options in horizontal layout */
+        .options-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+
+        .option-card {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
-        
+
         .option-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.08);
         }
-        
+
+        .option-card:nth-child(1) {
+            border-top: 4px solid #e07b53;
+        }
+
+        .option-card:nth-child(2) {
+            border-top: 4px solid #48bb78;
+        }
+
+        .option-card:nth-child(3) {
+            border-top: 4px solid #667eea;
+        }
+
         .option-header {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
-        
+
         .option-number {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-right: 15px;
+            margin-right: 12px;
             color: #fff;
         }
-        
+
+        .option-card:nth-child(1) .option-number {
+            background: linear-gradient(135deg, #e07b53 0%, #d06745 100%);
+        }
+
+        .option-card:nth-child(2) .option-number {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+        }
+
+        .option-card:nth-child(3) .option-number {
+            background: linear-gradient(135deg, #667eea 0%, #5a67d8 100%);
+        }
+
         .option-title {
-            font-size: 1.4rem;
-            font-weight: 500;
-            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1a202c;
         }
-        
+
         .six-words-core {
-            background: rgba(102, 126, 234, 0.15);
-            border-left: 3px solid #667eea;
-            padding: 12px 18px;
-            margin-bottom: 20px;
+            background: #f7fafc;
+            border-left: 3px solid #cbd5e0;
+            padding: 12px 16px;
+            margin-bottom: 18px;
             border-radius: 0 8px 8px 0;
-            display: flex;
-            align-items: center;
-            gap: 12px;
         }
-        
+
+        .option-card:nth-child(1) .six-words-core {
+            background: #fef5f2;
+            border-left-color: #e07b53;
+        }
+
+        .option-card:nth-child(2) .six-words-core {
+            background: #f0fff4;
+            border-left-color: #48bb78;
+        }
+
+        .option-card:nth-child(3) .six-words-core {
+            background: #ebf4ff;
+            border-left-color: #667eea;
+        }
+
         .six-words-label {
-            font-size: 0.7rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            color: #667eea;
-            background: rgba(102, 126, 234, 0.2);
-            padding: 4px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
+            color: #718096;
+            display: block;
+            margin-bottom: 4px;
         }
-        
+
         .six-words-text {
             font-style: italic;
-            color: #c8d0e8;
+            color: #4a5568;
+            font-size: 0.95rem;
         }
-        
+
         .questions-section h4 {
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            color: #8892b0;
-            margin-bottom: 12px;
+            color: #a0aec0;
+            margin-bottom: 10px;
         }
-        
+
         .questions-list {
             list-style: none;
         }
-        
+
         .questions-list li {
-            padding: 10px 0;
-            padding-left: 25px;
+            padding: 8px 0;
+            padding-left: 20px;
             position: relative;
-            color: #b8c0d8;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #4a5568;
+            font-size: 0.9rem;
+            border-bottom: 1px solid #f7fafc;
         }
-        
+
         .questions-list li:last-child {
             border-bottom: none;
         }
-        
+
         .questions-list li::before {
             content: "?";
             position: absolute;
             left: 0;
-            color: #667eea;
+            color: #a0aec0;
             font-weight: 600;
         }
-        
-        /* Scoring Section */
+
+        /* Middle Section - Scoring */
         .scoring-section {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
             padding: 35px;
-            margin-top: 40px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
         }
-        
+
         .scoring-section h2 {
-            text-align: center;
-            font-size: 1.6rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: #fff;
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
         }
-        
+
+        .scoring-section h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: linear-gradient(180deg, #e07b53, #48bb78, #667eea);
+            border-radius: 2px;
+        }
+
         .dimensions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
         }
-        
+
         .dimension-item {
-            background: rgba(255,255,255,0.05);
-            padding: 12px 18px;
-            border-radius: 8px;
+            background: #f7fafc;
+            padding: 14px 18px;
+            border-radius: 10px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border: 1px solid #e2e8f0;
         }
-        
+
         .dimension-name {
             font-weight: 500;
-            color: #c8d0e8;
+            color: #2d3748;
         }
-        
+
         .dimension-range {
-            color: #8892b0;
-            font-size: 0.9rem;
+            color: #718096;
+            font-size: 0.85rem;
             font-family: 'Courier New', monospace;
+            background: #edf2f7;
+            padding: 3px 8px;
+            border-radius: 4px;
         }
-        
+
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-top: 20px;
         }
-        
+
         th {
-            background: rgba(102, 126, 234, 0.2);
-            padding: 15px;
+            background: #f7fafc;
+            padding: 14px 16px;
             text-align: center;
             font-weight: 500;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #c8d0e8;
-            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+            letter-spacing: 0.5px;
+            color: #4a5568;
+            border-bottom: 2px solid #e2e8f0;
         }
-        
+
+        th:first-child {
+            text-align: left;
+            border-radius: 8px 0 0 0;
+        }
+
+        th:last-child {
+            border-radius: 0 8px 0 0;
+        }
+
         td {
-            padding: 18px 15px;
+            padding: 16px;
             text-align: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-            color: #e8e8e8;
+            border-bottom: 1px solid #f0f4f8;
+            color: #2d3748;
         }
-        
+
         td:first-child {
             text-align: left;
             font-weight: 500;
         }
-        
+
         tr:hover td {
-            background: rgba(255,255,255,0.03);
+            background: #fafcfe;
         }
-        
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
         .score-cell {
             font-family: 'Courier New', monospace;
             font-size: 1.1rem;
-        }
-        
-        .score-high { color: #4ade80; }
-        .score-mid { color: #fbbf24; }
-        .score-low { color: #f87171; }
-        .score-negative { color: #f87171; }
-        
-        .annotation {
-            font-size: 0.75rem;
-            color: #8892b0;
-            vertical-align: super;
-        }
-        
-        /* Notes Footer */
-        .notes-footer {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-        }
-        
-        .notes-footer h4 {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            color: #8892b0;
-            margin-bottom: 12px;
-        }
-        
-        .notes-footer ul {
-            list-style: none;
-        }
-        
-        .notes-footer li {
-            color: #8892b0;
-            font-size: 0.9rem;
-            padding: 5px 0;
-            padding-left: 20px;
-            position: relative;
-        }
-        
-        .notes-footer li::before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: #667eea;
+            font-weight: 600;
         }
 
-        .trader-illustration .trader-sketch {
+        .score-high { color: #38a169; }
+        .score-mid { color: #d69e2e; }
+        .score-low { color: #e07b53; }
+        .score-negative { color: #e53e3e; }
+
+        .annotation {
+            font-size: 0.7rem;
+            color: #a0aec0;
+            vertical-align: super;
+            font-weight: 400;
+        }
+
+        /* Bottom Section - was LEFT conceptually, now Notes */
+        .notes-footer {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border-radius: 16px;
+            padding: 30px 35px;
+            margin-top: auto;
+        }
+
+        .notes-footer h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #a0aec0;
+            margin-bottom: 15px;
+        }
+
+        .notes-footer ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .notes-footer li {
+            color: #e2e8f0;
+            font-size: 0.9rem;
+            padding-left: 20px;
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .notes-footer li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #e07b53, #48bb78);
+        }
+
+        .notes-footer li strong {
+            color: #fbd38d;
+        }
+
+        /* Trader Illustration Section */
+        .trader-illustration {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 16px;
+            padding: 35px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .trader-illustration h2 {
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: #1a202c;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .trader-illustration h2::before {
+            content: "";
+            display: inline-block;
+            width: 4px;
+            height: 24px;
+            background: #e07b53;
+            border-radius: 2px;
+        }
+
+        .trader-sketch {
             width: 100%;
             height: auto;
             display: block;
-            margin-top: 20px;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1200px) {
+            .options-row {
+                grid-template-columns: 1fr;
+            }
+
+            .dimensions {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                min-height: auto;
+                padding: 30px;
+            }
+
+            body {
+                flex-direction: column;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+
+            .dimensions {
+                grid-template-columns: 1fr;
+            }
+
+            .notes-footer ul {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <!-- Left Sidebar (was TOP) -->
+    <aside class="sidebar">
         <h1>Career / Life Paths — Decision Framework</h1>
-        
-        <!-- Option 1: Trader -->
-        <div class="option-card">
-            <div class="option-header">
-                <div class="option-number">1</div>
-                <div class="option-title">Trader</div>
+        <nav>
+            <ul class="sidebar-nav">
+                <li>Trader</li>
+                <li>Economy Consultant</li>
+                <li>Early Retired</li>
+            </ul>
+        </nav>
+        <span class="sidebar-badge">3 Options Evaluated</span>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <!-- Options Row (horizontal layout) -->
+        <section class="options-row">
+            <!-- Option 1: Trader -->
+            <div class="option-card">
+                <div class="option-header">
+                    <div class="option-number">1</div>
+                    <div class="option-title">Trader</div>
+                </div>
+                <div class="six-words-core">
+                    <span class="six-words-label">6-Word Core</span>
+                    <span class="six-words-text">Hard, intense work with unknown future</span>
+                </div>
+                <div class="questions-section">
+                    <h4>Open Questions</h4>
+                    <ul class="questions-list">
+                        <li>Would it be worth it to trade off my well-balanced life?</li>
+                        <li>Would I actually feel good when not feeling the best?</li>
+                        <li>How does the trader lifestyle look like?</li>
+                    </ul>
+                </div>
             </div>
-            <div class="six-words-core">
-                <span class="six-words-label">6-Word Core</span>
-                <span class="six-words-text">Hard, intense work with unknown future</span>
+
+            <!-- Option 2: Economy Consultant -->
+            <div class="option-card">
+                <div class="option-header">
+                    <div class="option-number">2</div>
+                    <div class="option-title">Economy Consultant</div>
+                </div>
+                <div class="six-words-core">
+                    <span class="six-words-label">6-Word Core</span>
+                    <span class="six-words-text">Monetize retail lack of knowledge (asymmetric)</span>
+                </div>
+                <div class="questions-section">
+                    <h4>Open Questions</h4>
+                    <ul class="questions-list">
+                        <li>Would I actually be useful?</li>
+                        <li>Would I manage to be surrounded by non-tech people, with non-tech problems?</li>
+                        <li>Would I be able to leverage that?</li>
+                    </ul>
+                </div>
             </div>
-            <div class="questions-section">
-                <h4>Open Questions</h4>
-                <ul class="questions-list">
-                    <li>Would it be worth it to trade off my well-balanced life?</li>
-                    <li>Would I actually feel good when not feeling the best?</li>
-                    <li>How does the trader lifestyle look like?</li>
-                </ul>
+
+            <!-- Option 3: Early Retired / Passive Income -->
+            <div class="option-card">
+                <div class="option-header">
+                    <div class="option-number">3</div>
+                    <div class="option-title">Early Retired / Passive Income</div>
+                </div>
+                <div class="six-words-core">
+                    <span class="six-words-label">6-Word Core</span>
+                    <span class="six-words-text">Great life without need to work</span>
+                </div>
+                <div class="questions-section">
+                    <h4>Open Questions</h4>
+                    <ul class="questions-list">
+                        <li>Can I still have impressive activities?</li>
+                        <li>Where in the world would I like to live?</li>
+                        <li>Would I still see my life as meaningful?</li>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        <!-- Option 2: Economy Consultant -->
-        <div class="option-card">
-            <div class="option-header">
-                <div class="option-number">2</div>
-                <div class="option-title">Economy Consultant</div>
-            </div>
-            <div class="six-words-core">
-                <span class="six-words-label">6-Word Core</span>
-                <span class="six-words-text">Monetize retail lack of knowledge (asymmetric)</span>
-            </div>
-            <div class="questions-section">
-                <h4>Open Questions</h4>
-                <ul class="questions-list">
-                    <li>Would I actually be useful?</li>
-                    <li>Would I manage to be surrounded by non-tech people, with non-tech problems?</li>
-                    <li>Would I be able to leverage that?</li>
-                </ul>
-            </div>
-        </div>
-        
-        <!-- Option 3: Early Retired / Passive Income -->
-        <div class="option-card">
-            <div class="option-header">
-                <div class="option-number">3</div>
-                <div class="option-title">Early Retired / Passive Income</div>
-            </div>
-            <div class="six-words-core">
-                <span class="six-words-label">6-Word Core</span>
-                <span class="six-words-text">Great life without need to work</span>
-            </div>
-            <div class="questions-section">
-                <h4>Open Questions</h4>
-                <ul class="questions-list">
-                    <li>Can I still have impressive activities?</li>
-                    <li>Where in the world would I like to live?</li>
-                    <li>Would I still see my life as meaningful?</li>
-                </ul>
-            </div>
-        </div>
-        
+        </section>
+
         <!-- Scoring Section -->
-        <div class="scoring-section">
+        <section class="scoring-section">
             <h2>Evaluation Matrix</h2>
-            
+
             <div class="dimensions">
                 <div class="dimension-item">
                     <span class="dimension-name">Resources</span>
@@ -346,7 +555,7 @@
                 </div>
                 <div class="dimension-item">
                     <span class="dimension-name">Likability</span>
-                    <span class="dimension-range">[−5, +5]</span>
+                    <span class="dimension-range">[-5, +5]</span>
                 </div>
                 <div class="dimension-item">
                     <span class="dimension-name">Confidence</span>
@@ -357,7 +566,7 @@
                     <span class="dimension-range">[0, 10]</span>
                 </div>
             </div>
-            
+
             <table>
                 <thead>
                     <tr>
@@ -386,99 +595,101 @@
                     <tr>
                         <td>3. Early Retirement</td>
                         <td class="score-cell score-low">2<span class="annotation"> (T)</span></td>
-                        <td class="score-cell score-negative">−3</td>
+                        <td class="score-cell score-negative">-3</td>
                         <td class="score-cell score-high">8</td>
                         <td class="score-cell score-high">8</td>
                     </tr>
                 </tbody>
             </table>
-            
-            <div class="notes-footer">
-                <h4>Methodology Notes</h4>
-                <ul>
-                    <li><strong>(T)</strong> annotation indicates time-dependent resource constraint</li>
-                    <li>No aggregation or weighting applied to scores</li>
-                    <li>All scores are ordinal / subjective assessments</li>
-                </ul>
-            </div>
-        </div>
+        </section>
 
-        <div class="scoring-section trader-illustration">
-            <h2>Trader</h2>
+        <!-- Trader Illustration -->
+        <section class="trader-illustration">
+            <h2>Trader Journey Map</h2>
             <svg class="trader-sketch" viewBox="0 0 900 1200" role="img" aria-labelledby="trader-title">
                 <title id="trader-title">Trader sketch layout</title>
                 <defs>
                     <pattern id="graph" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#2a3555" stroke-width="0.6" opacity="0.35" />
+                        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#e2e8f0" stroke-width="0.6" opacity="0.5" />
                     </pattern>
                     <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto">
-                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#7aa2f7" />
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#e07b53" />
                     </marker>
                 </defs>
-                <rect x="30" y="30" width="840" height="1140" rx="18" fill="#f8f9fc" />
+                <rect x="30" y="30" width="840" height="1140" rx="18" fill="#faf8f5" />
                 <rect x="30" y="30" width="840" height="1140" rx="18" fill="url(#graph)" />
-                <rect x="830" y="90" width="14" height="980" rx="7" fill="#c9d1e6" />
-                <rect x="830" y="110" width="14" height="940" rx="7" fill="#1f2a44" opacity="0.45" />
-                <text x="450" y="110" text-anchor="middle" font-size="48" font-family="Georgia, serif" fill="#1f3c7a">TRADER</text>
+                <rect x="830" y="90" width="14" height="980" rx="7" fill="#e2e8f0" />
+                <rect x="830" y="110" width="14" height="940" rx="7" fill="#2d3748" opacity="0.25" />
+                <text x="450" y="110" text-anchor="middle" font-size="48" font-family="Georgia, serif" fill="#1a365d">TRADER</text>
 
-                <ellipse cx="680" cy="190" rx="110" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="680" y="196" text-anchor="middle" font-size="16" fill="#2b4c94">TONS of INTERVIEWS</text>
-                <ellipse cx="450" cy="190" rx="110" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="450" y="196" text-anchor="middle" font-size="16" fill="#2b4c94">Handle rejections</text>
-                <ellipse cx="220" cy="190" rx="160" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="220" y="196" text-anchor="middle" font-size="16" fill="#2b4c94">Get the offer and country to move</text>
-                <line x1="600" y1="190" x2="530" y2="190" stroke="#7aa2f7" stroke-width="2" marker-end="url(#arrow)" />
-                <line x1="340" y1="190" x2="270" y2="190" stroke="#7aa2f7" stroke-width="2" marker-end="url(#arrow)" />
+                <ellipse cx="680" cy="190" rx="110" ry="32" fill="none" stroke="#2d3748" stroke-width="2" />
+                <text x="680" y="196" text-anchor="middle" font-size="16" fill="#2d3748">TONS of INTERVIEWS</text>
+                <ellipse cx="450" cy="190" rx="110" ry="32" fill="none" stroke="#2d3748" stroke-width="2" />
+                <text x="450" y="196" text-anchor="middle" font-size="16" fill="#2d3748">Handle rejections</text>
+                <ellipse cx="220" cy="190" rx="160" ry="32" fill="none" stroke="#2d3748" stroke-width="2" />
+                <text x="220" y="196" text-anchor="middle" font-size="16" fill="#2d3748">Get the offer and country to move</text>
+                <line x1="600" y1="190" x2="530" y2="190" stroke="#e07b53" stroke-width="2" marker-end="url(#arrow)" />
+                <line x1="340" y1="190" x2="270" y2="190" stroke="#e07b53" stroke-width="2" marker-end="url(#arrow)" />
 
-                <line x1="60" y1="260" x2="840" y2="260" stroke="#2b4c94" stroke-width="3" opacity="0.8" />
-                <line x1="200" y1="260" x2="200" y2="1130" stroke="#2b4c94" stroke-width="3" opacity="0.8" />
+                <line x1="60" y1="260" x2="840" y2="260" stroke="#2d3748" stroke-width="3" opacity="0.4" />
+                <line x1="200" y1="260" x2="200" y2="1130" stroke="#2d3748" stroke-width="3" opacity="0.4" />
 
-                <ellipse cx="630" cy="340" rx="120" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="630" y="346" text-anchor="middle" font-size="16" fill="#2b4c94">Talking to Ludmiła</text>
-                <ellipse cx="620" cy="420" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="620" y="426" text-anchor="middle" font-size="16" fill="#2b4c94">NEW JOB new routines</text>
-                <ellipse cx="620" cy="500" rx="120" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="620" y="506" text-anchor="middle" font-size="16" fill="#2b4c94">Have fun with work</text>
-                <line x1="620" y1="455" x2="620" y2="468" stroke="#7aa2f7" stroke-width="2" marker-end="url(#arrow)" />
+                <ellipse cx="630" cy="340" rx="120" ry="32" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="630" y="346" text-anchor="middle" font-size="16" fill="#2d3748">Talking to Ludmila</text>
+                <ellipse cx="620" cy="420" rx="140" ry="34" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="620" y="426" text-anchor="middle" font-size="16" fill="#2d3748">NEW JOB new routines</text>
+                <ellipse cx="620" cy="500" rx="120" ry="32" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="620" y="506" text-anchor="middle" font-size="16" fill="#2d3748">Have fun with work</text>
+                <line x1="620" y1="455" x2="620" y2="468" stroke="#e07b53" stroke-width="2" marker-end="url(#arrow)" />
 
-                <ellipse cx="610" cy="590" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="610" y="596" text-anchor="middle" font-size="16" fill="#2b4c94">accepting new country</text>
-                <ellipse cx="630" cy="660" rx="150" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="630" y="666" text-anchor="middle" font-size="16" fill="#2b4c94">new places with wife</text>
-                <line x1="610" y1="625" x2="630" y2="636" stroke="#7aa2f7" stroke-width="2" marker-end="url(#arrow)" />
+                <ellipse cx="610" cy="590" rx="140" ry="34" fill="none" stroke="#667eea" stroke-width="2" />
+                <text x="610" y="596" text-anchor="middle" font-size="16" fill="#2d3748">accepting new country</text>
+                <ellipse cx="630" cy="660" rx="150" ry="34" fill="none" stroke="#667eea" stroke-width="2" />
+                <text x="630" y="666" text-anchor="middle" font-size="16" fill="#2d3748">new places with wife</text>
+                <line x1="610" y1="625" x2="630" y2="636" stroke="#e07b53" stroke-width="2" marker-end="url(#arrow)" />
 
-                <ellipse cx="600" cy="740" rx="170" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="600" y="746" text-anchor="middle" font-size="16" fill="#2b4c94">first vacation first restaurant pair</text>
-                <ellipse cx="610" cy="820" rx="150" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="610" y="826" text-anchor="middle" font-size="16" fill="#2b4c94">Becoming successful trader</text>
-                <ellipse cx="620" cy="930" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="620" y="936" text-anchor="middle" font-size="16" fill="#2b4c94">living with a new budget</text>
+                <ellipse cx="600" cy="740" rx="170" ry="34" fill="none" stroke="#d69e2e" stroke-width="2" />
+                <text x="600" y="746" text-anchor="middle" font-size="16" fill="#2d3748">first vacation first restaurant pair</text>
+                <ellipse cx="610" cy="820" rx="150" ry="34" fill="none" stroke="#d69e2e" stroke-width="2" />
+                <text x="610" y="826" text-anchor="middle" font-size="16" fill="#2d3748">Becoming successful trader</text>
+                <ellipse cx="620" cy="930" rx="140" ry="34" fill="none" stroke="#d69e2e" stroke-width="2" />
+                <text x="620" y="936" text-anchor="middle" font-size="16" fill="#2d3748">living with a new budget</text>
 
-                <ellipse cx="320" cy="340" rx="120" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="320" y="346" text-anchor="middle" font-size="16" fill="#2b4c94">Making a move plan</text>
-                <ellipse cx="330" cy="420" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="330" y="426" text-anchor="middle" font-size="16" fill="#2b4c94">tons of legal stuff</text>
-                <ellipse cx="330" cy="500" rx="130" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="330" y="506" text-anchor="middle" font-size="16" fill="#2b4c94">Taking care of Ludmiła</text>
+                <ellipse cx="320" cy="340" rx="120" ry="32" fill="none" stroke="#e07b53" stroke-width="2" />
+                <text x="320" y="346" text-anchor="middle" font-size="16" fill="#2d3748">Making a move plan</text>
+                <ellipse cx="330" cy="420" rx="140" ry="34" fill="none" stroke="#e07b53" stroke-width="2" />
+                <text x="330" y="426" text-anchor="middle" font-size="16" fill="#2d3748">tons of legal stuff</text>
+                <ellipse cx="330" cy="500" rx="130" ry="34" fill="none" stroke="#e07b53" stroke-width="2" />
+                <text x="330" y="506" text-anchor="middle" font-size="16" fill="#2d3748">Taking care of Ludmila</text>
 
-                <ellipse cx="420" cy="620" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="420" y="626" text-anchor="middle" font-size="16" fill="#2b4c94">NEW hobbies SPORTS</text>
-                <ellipse cx="420" cy="700" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="420" y="706" text-anchor="middle" font-size="16" fill="#2b4c94">exploring new culture</text>
-                <ellipse cx="420" cy="780" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="420" y="786" text-anchor="middle" font-size="16" fill="#2b4c94">hope for more travels</text>
+                <ellipse cx="420" cy="620" rx="140" ry="34" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="420" y="626" text-anchor="middle" font-size="16" fill="#2d3748">NEW hobbies SPORTS</text>
+                <ellipse cx="420" cy="700" rx="140" ry="34" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="420" y="706" text-anchor="middle" font-size="16" fill="#2d3748">exploring new culture</text>
+                <ellipse cx="420" cy="780" rx="140" ry="34" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="420" y="786" text-anchor="middle" font-size="16" fill="#2d3748">hope for more travels</text>
 
-                <ellipse cx="110" cy="360" rx="90" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="110" y="366" text-anchor="middle" font-size="14" fill="#2b4c94">a lot of STRESS</text>
-                <ellipse cx="110" cy="440" rx="90" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="110" y="446" text-anchor="middle" font-size="14" fill="#2b4c94">making new friends</text>
-                <ellipse cx="110" cy="520" rx="90" ry="32" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="110" y="526" text-anchor="middle" font-size="14" fill="#2b4c94">visit Poland!!!</text>
+                <ellipse cx="110" cy="360" rx="90" ry="32" fill="none" stroke="#e53e3e" stroke-width="2" />
+                <text x="110" y="366" text-anchor="middle" font-size="14" fill="#2d3748">a lot of STRESS</text>
+                <ellipse cx="110" cy="440" rx="90" ry="32" fill="none" stroke="#667eea" stroke-width="2" />
+                <text x="110" y="446" text-anchor="middle" font-size="14" fill="#2d3748">making new friends</text>
+                <ellipse cx="110" cy="520" rx="90" ry="32" fill="none" stroke="#48bb78" stroke-width="2" />
+                <text x="110" y="526" text-anchor="middle" font-size="14" fill="#2d3748">visit Poland!!!</text>
 
-                <ellipse cx="200" cy="980" rx="140" ry="34" fill="none" stroke="#2b4c94" stroke-width="2" />
-                <text x="200" y="986" text-anchor="middle" font-size="16" fill="#2b4c94">inviting people over</text>
+                <ellipse cx="200" cy="980" rx="140" ry="34" fill="none" stroke="#667eea" stroke-width="2" />
+                <text x="200" y="986" text-anchor="middle" font-size="16" fill="#2d3748">inviting people over</text>
             </svg>
-        </div>
-    </div>
+        </section>
+
+        <!-- Bottom Section (was LEFT conceptually) - Methodology Notes -->
+        <footer class="notes-footer">
+            <h4>Methodology Notes</h4>
+            <ul>
+                <li><strong>(T)</strong> annotation indicates time-dependent resource constraint</li>
+                <li>No aggregation or weighting applied to scores</li>
+                <li>All scores are ordinal / subjective assessments</li>
+            </ul>
+        </footer>
+    </main>
 </body>
 </html>
