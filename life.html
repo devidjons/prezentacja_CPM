@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Career / Life Paths — Decision Framework</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+            color: #e8e8e8;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            margin-bottom: 50px;
+            color: #fff;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+            padding-bottom: 20px;
+        }
+        
+        .option-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 25px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .option-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+        
+        .option-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .option-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-right: 15px;
+            color: #fff;
+        }
+        
+        .option-title {
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .six-words-core {
+            background: rgba(102, 126, 234, 0.15);
+            border-left: 3px solid #667eea;
+            padding: 12px 18px;
+            margin-bottom: 20px;
+            border-radius: 0 8px 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .six-words-label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #667eea;
+            background: rgba(102, 126, 234, 0.2);
+            padding: 4px 8px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        
+        .six-words-text {
+            font-style: italic;
+            color: #c8d0e8;
+        }
+        
+        .questions-section h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8892b0;
+            margin-bottom: 12px;
+        }
+        
+        .questions-list {
+            list-style: none;
+        }
+        
+        .questions-list li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+            color: #b8c0d8;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .questions-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .questions-list li::before {
+            content: "?";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: 600;
+        }
+        
+        /* Scoring Section */
+        .scoring-section {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 35px;
+            margin-top: 40px;
+        }
+        
+        .scoring-section h2 {
+            text-align: center;
+            font-size: 1.6rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: #fff;
+        }
+        
+        .dimensions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-bottom: 35px;
+        }
+        
+        .dimension-item {
+            background: rgba(255,255,255,0.05);
+            padding: 12px 18px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .dimension-name {
+            font-weight: 500;
+            color: #c8d0e8;
+        }
+        
+        .dimension-range {
+            color: #8892b0;
+            font-size: 0.9rem;
+            font-family: 'Courier New', monospace;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th {
+            background: rgba(102, 126, 234, 0.2);
+            padding: 15px;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #c8d0e8;
+            border-bottom: 2px solid rgba(102, 126, 234, 0.3);
+        }
+        
+        td {
+            padding: 18px 15px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: #e8e8e8;
+        }
+        
+        td:first-child {
+            text-align: left;
+            font-weight: 500;
+        }
+        
+        tr:hover td {
+            background: rgba(255,255,255,0.03);
+        }
+        
+        .score-cell {
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+        }
+        
+        .score-high { color: #4ade80; }
+        .score-mid { color: #fbbf24; }
+        .score-low { color: #f87171; }
+        .score-negative { color: #f87171; }
+        
+        .annotation {
+            font-size: 0.75rem;
+            color: #8892b0;
+            vertical-align: super;
+        }
+        
+        /* Notes Footer */
+        .notes-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .notes-footer h4 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #8892b0;
+            margin-bottom: 12px;
+        }
+        
+        .notes-footer ul {
+            list-style: none;
+        }
+        
+        .notes-footer li {
+            color: #8892b0;
+            font-size: 0.9rem;
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .notes-footer li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Career / Life Paths — Decision Framework</h1>
+        
+        <!-- Option 1: Trader -->
+        <div class="option-card">
+            <div class="option-header">
+                <div class="option-number">1</div>
+                <div class="option-title">Trader</div>
+            </div>
+            <div class="six-words-core">
+                <span class="six-words-label">6-Word Core</span>
+                <span class="six-words-text">Hard, intense work with unknown future</span>
+            </div>
+            <div class="questions-section">
+                <h4>Open Questions</h4>
+                <ul class="questions-list">
+                    <li>Would it be worth it to trade off my well-balanced life?</li>
+                    <li>Would I actually feel good when not feeling the best?</li>
+                    <li>How does the trader lifestyle look like?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Option 2: Economy Consultant -->
+        <div class="option-card">
+            <div class="option-header">
+                <div class="option-number">2</div>
+                <div class="option-title">Economy Consultant</div>
+            </div>
+            <div class="six-words-core">
+                <span class="six-words-label">6-Word Core</span>
+                <span class="six-words-text">Monetize retail lack of knowledge (asymmetric)</span>
+            </div>
+            <div class="questions-section">
+                <h4>Open Questions</h4>
+                <ul class="questions-list">
+                    <li>Would I actually be useful?</li>
+                    <li>Would I manage to be surrounded by non-tech people, with non-tech problems?</li>
+                    <li>Would I be able to leverage that?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Option 3: Early Retired / Passive Income -->
+        <div class="option-card">
+            <div class="option-header">
+                <div class="option-number">3</div>
+                <div class="option-title">Early Retired / Passive Income</div>
+            </div>
+            <div class="six-words-core">
+                <span class="six-words-label">6-Word Core</span>
+                <span class="six-words-text">Great life without need to work</span>
+            </div>
+            <div class="questions-section">
+                <h4>Open Questions</h4>
+                <ul class="questions-list">
+                    <li>Can I still have impressive activities?</li>
+                    <li>Where in the world would I like to live?</li>
+                    <li>Would I still see my life as meaningful?</li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Scoring Section -->
+        <div class="scoring-section">
+            <h2>Evaluation Matrix</h2>
+            
+            <div class="dimensions">
+                <div class="dimension-item">
+                    <span class="dimension-name">Resources</span>
+                    <span class="dimension-range">[0, 10]</span>
+                </div>
+                <div class="dimension-item">
+                    <span class="dimension-name">Likability</span>
+                    <span class="dimension-range">[−5, +5]</span>
+                </div>
+                <div class="dimension-item">
+                    <span class="dimension-name">Confidence</span>
+                    <span class="dimension-range">[0, 10]</span>
+                </div>
+                <div class="dimension-item">
+                    <span class="dimension-name">Coherence</span>
+                    <span class="dimension-range">[0, 10]</span>
+                </div>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Option</th>
+                        <th>Resources</th>
+                        <th>Likability</th>
+                        <th>Confidence</th>
+                        <th>Coherence</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1. Trader</td>
+                        <td class="score-cell score-mid">6</td>
+                        <td class="score-cell score-mid">+2</td>
+                        <td class="score-cell score-low">4</td>
+                        <td class="score-cell score-high">7</td>
+                    </tr>
+                    <tr>
+                        <td>2. Economy Consultant</td>
+                        <td class="score-cell score-high">8</td>
+                        <td class="score-cell score-mid">+2</td>
+                        <td class="score-cell score-low">3</td>
+                        <td class="score-cell score-low">3</td>
+                    </tr>
+                    <tr>
+                        <td>3. Early Retirement</td>
+                        <td class="score-cell score-low">2<span class="annotation"> (T)</span></td>
+                        <td class="score-cell score-negative">−3</td>
+                        <td class="score-cell score-high">8</td>
+                        <td class="score-cell score-high">8</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="notes-footer">
+                <h4>Methodology Notes</h4>
+                <ul>
+                    <li><strong>(T)</strong> annotation indicates time-dependent resource constraint</li>
+                    <li>No aggregation or weighting applied to scores</li>
+                    <li>All scores are ordinal / subjective assessments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
