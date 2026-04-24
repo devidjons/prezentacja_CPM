@@ -1,84 +1,125 @@
 import matplotlib.pyplot as plt
 import matplotlib.animation as animation
-from matplotlib.widgets import Slider
+from matplotlib.widgets import Slider, Button
 import numpy as np
 
-x_min, x_max = -30, 30
-y_min, y_max = 0, 30
-mult_size = 3.0
-speed = 0.5
+# ── constants ──────────────────────────────────────────────────────────────────
+X_MIN, X_MAX = -30, 30
+Y_MIN, Y_MAX = 0, 30
+MULT = 3.0
+GRID_STEP = 2.0
 
-def make_round(inp, lower, upper):
-    diff = upper - lower
-    if inp < lower:
-        inp += diff
-    if inp > upper:
-        inp -= diff
-    return inp
+COVER_X0 = X_MIN
+COVER_Y0 = 3 * MULT
+COVER_W  = 3 * MULT
+COVER_H  = 0.5 * MULT
 
-# Function to update the animation frame
+HUMAN_X0 = X_MAX - MULT
+HUMAN_W  = MULT
+HUMAN_H  = 2 * MULT
+
+DROP_POSITIONS = [
+    (x, y)
+    for x in np.arange(X_MIN, X_MAX, GRID_STEP)
+    for y in np.arange(Y_MIN, Y_MAX, GRID_STEP)
+]
+
+def wrap(val, lo, hi):
+    return (val - lo) % (hi - lo) + lo
+
+# ── figure & axes ──────────────────────────────────────────────────────────────
+fig, ax = plt.subplots(figsize=(10, 6))
+plt.subplots_adjust(left=0.08, bottom=0.30, right=0.95, top=0.92)
+
+ax.set_xlim(X_MIN, X_MAX)
+ax.set_ylim(Y_MIN, Y_MAX)
+ax.set_aspect('equal')
+ax.set_title("Czy opłaca się biegać w deszczu?", fontsize=13)
+ax.axis('off')
+
+# ── patches ────────────────────────────────────────────────────────────────────
+cover = plt.Rectangle((COVER_X0, COVER_Y0), COVER_W, COVER_H,
+                       fc='steelblue', label='Schronienie', zorder=3)
+human = plt.Rectangle((HUMAN_X0, 0), HUMAN_W, HUMAN_H,
+                       fc='tomato', label='Człowiek', zorder=3)
+drops = [plt.Circle(pos, 0.15, color='dodgerblue', alpha=0.6, zorder=2)
+         for pos in DROP_POSITIONS]
+
+ax.add_patch(cover)
+ax.add_patch(human)
+for d in drops:
+    ax.add_patch(d)
+ax.legend(loc='upper right', fontsize=9)
+
+# ── widgets ────────────────────────────────────────────────────────────────────
+ax_wind  = plt.axes([0.25, 0.19, 0.65, 0.03])
+ax_stage = plt.axes([0.25, 0.13, 0.65, 0.03])
+ax_speed = plt.axes([0.25, 0.07, 0.65, 0.03])
+ax_btn   = plt.axes([0.05, 0.15, 0.10, 0.06])
+ax_loop  = plt.axes([0.05, 0.07, 0.10, 0.06])
+
+wind_slider  = Slider(ax_wind,  'Prędkość wiatru', -3.0, 3.0, valinit=0.0)
+stage_slider = Slider(ax_stage, 'Ruch sceny',      -3.0, 3.0, valinit=0.0)
+speed_slider = Slider(ax_speed, 'Prędkość',         0.1, 3.0, valinit=1.0)
+btn_reset    = Button(ax_btn,  'Reset')
+btn_loop     = Button(ax_loop, 'Loop: OFF')
+
+_stopped = False
+_loop    = False
+
+def reset(event=None):
+    global _stopped
+    was_stopped = _stopped
+    _stopped = False
+    cover.set_x(COVER_X0)
+    human.set_x(HUMAN_X0)
+    for d, pos in zip(drops, DROP_POSITIONS):
+        d.set_center(pos)
+    if was_stopped and ani.event_source is not None:
+        ani.event_source.start()
+    fig.canvas.draw_idle()
+
+def toggle_loop(event=None):
+    global _loop
+    _loop = not _loop
+    btn_loop.label.set_text('Loop: ON' if _loop else 'Loop: OFF')
+    fig.canvas.draw_idle()
+
+btn_reset.on_clicked(reset)
+btn_loop.on_clicked(toggle_loop)
+
+# ── update ─────────────────────────────────────────────────────────────────────
 def update(frame):
-    global cube1, cube2, small_circles, v1, v2, v3_0, v3_1, v3_slider
-    # Set the speeds of the cubes
-    speed_mult = speed * speed_slider.val
-    v1 = 0.0 * speed_mult
-    v2 = -0.5 * speed_mult
-    v3_0 = 0.0 * speed_mult
-    v3_1 = -0.3 * speed_mult
+    global _stopped
+    if _stopped:
+        return [cover, human] + drops
 
-    # Update cube positions based on their speeds
-    v3 = v3_slider.val * speed_mult
-    cube1.set_x(cube1.get_x() + v1 + v3)
-    cube2.set_x(cube2.get_x() + v2 + v3)
+    spd      =  speed_slider.val
+    v_wind   =  wind_slider.val * 0.1   # horizontal speed added to drops only
+    v_stage  =  stage_slider.val * 0.1  # shifts all objects (reference frame)
+    v_human  = -0.5 * spd               # human moves left toward shelter
+    v_rain_y = -0.3 * spd               # rain falls downward
 
-    # Update small circle positions
-    for circle in small_circles:
-        x = circle.center[0] + v3_0 + v3
-        y = circle.center[1] + v3_1
-        x = make_round(x, x_min, x_max)
-        y = make_round(y, y_min, y_max)
-        circle.set_center((x, y))
+    cover.set_x(cover.get_x() + v_stage)
+    human.set_x(human.get_x() + v_human + v_stage)
 
-    # Check if cubes have met, and if so, stop the animation
-    if cube1.get_x() + 1 >= cube2.get_x():
-        ani.event_source.stop()
+    for d in drops:
+        x = wrap(d.center[0] + v_wind + v_stage, X_MIN, X_MAX)
+        y = wrap(d.center[1] + v_rain_y,          Y_MIN, Y_MAX)
+        d.set_center((x, y))
 
-    return [cube1] + [cube2] + small_circles
+    if human.get_x() <= cover.get_x() + COVER_W:
+        if _loop:
+            reset()
+        else:
+            _stopped = True
 
-# Set up the figure and axes
-fig, ax = plt.subplots()
-ax.set_xlim(x_min, x_max)
-ax.set_ylim(y_min, y_max)
+    return [cover, human] + drops
 
-# Create two cubes
-cube1 = plt.Rectangle((x_min, 3 * mult_size), 3 * mult_size, 0.5 * mult_size, fc='b', label='cover')
-cube2 = plt.Rectangle((x_max - mult_size, 0), 1 * mult_size, 2 * mult_size, fc='r', label='human')
+# ── run ────────────────────────────────────────────────────────────────────────
+ani = animation.FuncAnimation(fig, update, interval=30, blit=False, repeat=False,
+                              cache_frame_data=False)
 
-# Add the cubes to the plot
-ax.add_patch(cube1)
-ax.add_patch(cube2)
-
-# Create small circles all over the grid
-grid_step = 2.0
-small_circles = []
-for x in np.arange(x_min, x_max, grid_step):
-    for y in np.arange(y_min, y_max, grid_step):
-        small_circles.append(plt.Circle((x, y), 0.1))
-
-# Add small circles to the plot
-for circle in small_circles:
-    ax.add_patch(circle)
-
-# Create the slider for v3
-ax_v3 = plt.axes([0.25, 0.01, 0.65, 0.03], facecolor='lightgoldenrodyellow')
-v3_slider = Slider(ax_v3, 'v3', 0.0, 1.0, valinit=0.0)
-
-# Create the slider for speed
-ax_speed = plt.axes([0.25, 0.06, 0.65, 0.03], facecolor='lightgoldenrodyellow')
-speed_slider = Slider(ax_speed, 'speed', 0.1, 3.0, valinit=0.5)
-
-# Create the animation
-ani = animation.FuncAnimation(fig, update, frames=100, interval=10, blit=True, repeat=True)
-
-# Show the plot
-plt.show()
+plt.show(block=False)
+while plt.get_fignums():
+    plt.pause(0.01)
