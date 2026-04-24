@@ -1,33 +1,32 @@
 \documentclass{beamer}
+\usetheme{Boadilla}
+\usecolortheme{dolphin}
+\setbeamertemplate{navigation symbols}{}
 
-\mode<presentation> {
-
-\usetheme{Madrid}
-
-}
-\usepackage{polski}
-\usepackage{graphicx} 
-\usepackage{hyperref}
-\usepackage{booktabs} 
 \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{amsmath}
+
 \newtheorem{thm}{Twierdzenie}
-\newtheorem{pf}{Dowód}
 \newtheorem{df}{Definicja}
 
-\title{Jak wygląda modelowanie matematyczne, czyli czy opłaca się biegać w deszczu?}
-\author{Vlad Snozyk} 
-\institute[UJ] 
-{
-Wydział Matematyki i Informatyki UJ
-\medskip
-}
-\date{\today} 
+\title{Jak wygląda modelowanie matematyczne}
+\subtitle{czyli czy opłaca się biegać w deszczu?}
+\author{Vlad Snozyk}
+\institute{Wydział Matematyki i Informatyki UJ}
+\date{\today}
 
 \begin{document}
 
 \begin{frame}
-\titlepage 
+  \titlepage
 \end{frame}
+
 \begin{frame}{Model matematyczny na studiach}
   Przykłady świetnych modeli matematycznych:
   \begin{itemize}
@@ -36,25 +35,50 @@ Wydział Matematyki i Informatyki UJ
     \item Pochodne
   \end{itemize}
 \end{frame}
+
 \begin{frame}{Model matematyczny na studiach}
-  Teoria teorią, ale w praktyce jest troszczkę inaczej ...
+  Teoria teorią, ale w praktyce jest troszczkę inaczej\ldots
 \end{frame}
 
 \begin{frame}{Problem biegania pod deszczem}
+  Na ulicy stoi człowiek. Nagle zaczyna padać deszcz. Osoba kieruje się do
+  najbliższego schronienia oddalonego o $l$ metrów.
 
-  
-Na ulicy stoi człowiek. Nagle zaczyna padać deszcz. Osoba kieruje się do najbliższego schronienia oddalonego o $l$ metrów od niego. Jaką prędkością powinien się poruszać, aby zmoknąć jak najmniej?
+  \vspace{0.5cm}
+  \textbf{Pytanie:} jaką prędkością powinien się poruszać, aby zmoknąć jak najmniej?
 \end{frame}
 
-\begin{frame}{Problem biegania pod deszczem}
-Prostopadłościan o powierzchniach równych $a$, $b$, $c$ porusza się z prędkością prostopadłą do powierzchni $a$. Jednocześnie pada deszcz, gdzie każda kropla ma prędkość $v$. Ilość kropli deszczu w jednostce objętości wynosi $k$. Pytanie: ile kropli $N$ trafi w prostopadłościan podczas tego czasu, gdy przemieści się na odległość $l$, i przy jakiej wartości prędkości ta liczba $N$ będzie minimalna?
+\begin{frame}{Problem biegania pod deszczem — formalizacja}
+  Prostopadłościan o powierzchniach $a$, $b$, $c$ porusza się z prędkością
+  prostopadłą do powierzchni $a$. Pada deszcz, gdzie:
+  \begin{itemize}
+    \item każda kropla ma prędkość $v$
+    \item ilość kropli w jednostce objętości wynosi $k$
+  \end{itemize}
+
+  \vspace{0.4cm}
+  \textbf{Pytania:}
+  \begin{itemize}
+    \item Ile kropli $N$ trafi w prostopadłościan podczas przemieszczenia o $l$?
+    \item Przy jakiej prędkości $N$ jest minimalne?
+  \end{itemize}
 \end{frame}
-\begin{frame}{Rozwiązanie}
-    Krok 1: Olewamy boczną stronę. Czyli przechodzimy do problemu 2D
+
+\begin{frame}{Rozwiązanie — krok 1}
+  \begin{block}{Uproszczenie}
+    Olewamy boczną stronę i przechodzimy do uproszczonego problemu 2D.
+  \end{block}
 \end{frame}
+
 \begin{frame}{Problem uproszczony}
-    Na prostopadłościan pada deszcz z prędkością $v$ w ciągu $t$ sekund. Ilość kropli deszczu w jednostce objętości wynosi $k$. Pytanie: ile kropli trafi w prostopadłościan?\\
-    $$\vec{v} = \vec{v_x} + \vec{v_y}$$
+  Na prostopadłościan pada deszcz z prędkością $v$ przez czas $t$ sekund.
+  Ilość kropli w jednostce objętości wynosi $k$.
+
+  \vspace{0.4cm}
+  \textbf{Pytanie:} ile kropli trafi w prostopadłościan?
+
+  \vspace{0.4cm}
+  $$\vec{v} = \vec{v_x} + \vec{v_y}$$
 \end{frame}
 
 \begin{frame}{Plots}
@@ -82,60 +106,61 @@ Prostopadłościan o powierzchniach równych $a$, $b$, $c$ porusza się z prędk
 \end{frame}
 
 \begin{frame}{Wzór}
-
-$$Volume = (V_x * a + V_y * b) * t $$
-$$N = Volume * k = (V_x * a + V_y * b) * t * k$$
-    
+  $$\text{Volume} = (V_x \cdot a + V_y \cdot b) \cdot t$$
+  $$N = \text{Volume} \cdot k = (V_x \cdot a + V_y \cdot b) \cdot t \cdot k$$
 \end{frame}
 
 \begin{frame}{Wzór ogólny}
-
-
-$$N = (V_x * a + V_y * b + V_z * c) * t * k$$
-    
+  $$N = (V_x \cdot a + V_y \cdot b + V_z \cdot c) \cdot t \cdot k$$
 \end{frame}
 
 \begin{frame}{Ruch względny}
-    \begin{itemize}
-        \item Slońce
-        \item Ziemia
-        \item Pociąg
-        \item \href{https://www.youtube.com/watch?v=8wqNX7_4vAE&ab_channel=GoPro}{Filmik z pieskiem}
-    \end{itemize}
+  Przykłady ruchu względnego:
+  \begin{itemize}
+    \item Słońce
+    \item Ziemia
+    \item Pociąg
+    \item \href{https://www.youtube.com/watch?v=8wqNX7_4vAE}{Filmik z pieskiem}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Animacje}
-    Animacje
+  Animacje ilustrujące ruch względny i problem deszczu.
 \end{frame}
 
-\begin{frame}{Przypadek 1. Wiatr wieje w twarz}
-    Przypadek 1. Wiatr wieje w twarz
+% ── Przypadek 1 ───────────────────────────────────────────────────────────────
+
+\begin{frame}{Przypadek 1 — wiatr wieje w twarz}
+  \begin{block}{Ustawienie}
+    Wiatr wieje przeciwnie do kierunku ruchu człowieka.
+  \end{block}
 \end{frame}
 
-\begin{frame}{Przypadek 1. Wiatr wieje w twarz}
-Przypadek 1. Wiatr wieje w twarz
-    $$t = l / u$$
-    $$V_x^*= V_x + u$$
+\begin{frame}{Przypadek 1 — wiatr wieje w twarz}
+  \begin{align*}
+    t &= \frac{l}{u} \\
+    V_x^* &= V_x + u
+  \end{align*}
 \end{frame}
 
-\begin{frame}{Przypadek 1. Wiatr wieje w twarz}
-Przypadek 1. Wiatr wieje w twarz
-    $$t = l / u$$
-    $$V_x^*= V_x + u$$
-    $$N = (V_x^* * a + V_y * b + V_z * c) * t * k$$
-    $$N(u) = \frac{{(V_x + u) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}
-$$
+\begin{frame}{Przypadek 1 — wiatr wieje w twarz}
+  \begin{align*}
+    t &= \frac{l}{u}, \quad V_x^* = V_x + u \\[6pt]
+    N &= (V_x^* \cdot a + V_y \cdot b + V_z \cdot c) \cdot t \cdot k \\[6pt]
+    N(u) &= \frac{(V_x + u) \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k
+  \end{align*}
 \end{frame}
 
+\begin{frame}{Przypadek 1 — wiatr wieje w twarz}
+  \begin{align*}
+    N(u) &= \frac{(V_x + u) \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k \\[6pt]
+    N(u) &= \frac{V_x \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k \;+\; a \cdot l \cdot k
+  \end{align*}
 
-\begin{frame}{Przypadek 1. Wiatr wieje w twarz}
-Przypadek 1. Wiatr wieje w twarz
-    $$t = l / u$$
-    $$V_x^*= V_x + u$$
-    $$N = (V_x^* * a + V_y * b + V_z * c) * t * k$$
-    $$N(u) = \frac{{(V_x + u) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}$$
-    $$N(u) = \frac{{(V_x) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}} + a\cdot \frac{{l}}{{k}}$$
-
+  \vspace{0.3cm}
+  \begin{block}{Wniosek}
+    Im większa prędkość $u$, tym mniejsza liczba kropli — biec jak najszybciej.
+  \end{block}
 \end{frame}
 
 \begin{frame}{Plots}
@@ -144,46 +169,51 @@ Przypadek 1. Wiatr wieje w twarz
   \end{figure}
 \end{frame}
 
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-    Przypadek 2. Wiatr wieje w plecy
+% ── Przypadek 2 ───────────────────────────────────────────────────────────────
+
+\begin{frame}{Przypadek 2 — wiatr wieje w plecy}
+  \begin{block}{Ustawienie}
+    Wiatr wieje w tym samym kierunku co ruch człowieka.
+  \end{block}
 \end{frame}
 
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-    Przypadek 2. Wiatr wieje w plecy\\
-    Animacje
-\end{frame}
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-Przypadek 2. Wiatr wieje w plecy
-    $$t = \frac{l}{u}$$
-    $$V_x^* = V_x - u$$
+\begin{frame}{Przypadek 2 — wiatr wieje w plecy}
+  Animacje.
 \end{frame}
 
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-Przypadek 2. Wiatr wieje w plecy
-    $$t = \frac{l}{u}$$
-    $$V_x^* = V_x - u$$
-    $$N = (V_x^* \cdot a + V_y \cdot b + V_z \cdot c) \cdot t \cdot k$$
-    $$N(u) = \frac{{|V_x - u| \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}
-$$
+\begin{frame}{Przypadek 2 — wiatr wieje w plecy}
+  \begin{align*}
+    t &= \frac{l}{u} \\
+    V_x^* &= V_x - u
+  \end{align*}
 \end{frame}
 
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-Przypadek 2. Wiatr wieje w plecy
-    $$t = \frac{l}{u}$$
-    $$V_x^* = V_x - u$$
-    $$N = (V_x^* \cdot a + V_y \cdot b + V_z \cdot c) \cdot t \cdot k$$
-    $$N(u) = \frac{{|V_x - u| \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}$$
+\begin{frame}{Przypadek 2 — wiatr wieje w plecy}
+  \begin{align*}
+    t &= \frac{l}{u}, \quad V_x^* = V_x - u \\[6pt]
+    N &= (V_x^* \cdot a + V_y \cdot b + V_z \cdot c) \cdot t \cdot k \\[6pt]
+    N(u) &= \frac{|V_x - u| \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k
+  \end{align*}
+\end{frame}
 
+\begin{frame}{Przypadek 2 — podprzypadki}
+  \textbf{Gdy $V_x > u$:}
+  \begin{align*}
+    N(u) &= \frac{V_x \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k \;-\; a \cdot l \cdot k
+  \end{align*}
+
+  \vspace{0.2cm}
+  \textbf{Gdy $V_x \leq u$:}
+  \begin{align*}
+    N(u) &= \frac{-V_x \cdot a + V_y \cdot b + V_z \cdot c}{u} \cdot l \cdot k \;+\; a \cdot l \cdot k
+  \end{align*}
+
+  \vspace{0.2cm}
+  \begin{block}{Wniosek}
+    W obu przypadkach im większa prędkość, tym mniej kropli — biec jak najszybciej.
+  \end{block}
 \end{frame}
-\begin{frame}{Przypadek 2. Wiatr wieje w plecy}
-Przypadek 2. Wiatr wieje w plecy
-    $$V_x>u$$
-    $$N(u) = \frac{{(V_x - u) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}$$
-    $$N(u) = \frac{{(V_x) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}} - a\cdot \frac{{l}}{{k}}$$
-    $$V_x \leq u$$
-    $$N(u) = \frac{{(-V_x + u )\cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}}$$
-    $$N(u) = \frac{{(-V_x) \cdot a + V_y \cdot b + V_z \cdot c}}{{u}} \cdot \frac{{l}}{{k}} + a\cdot \frac{{l}}{{k}}$$
-\end{frame}
+
 \begin{frame}{Plots}
   \begin{figure}
     \includegraphics[width=250pt]{pt6.png}
@@ -191,8 +221,9 @@ Przypadek 2. Wiatr wieje w plecy
 \end{frame}
 
 \begin{frame}{Pytania}
-Pytania
-    
+  \centering
+  \Large
+  Czy są jakieś pytania?
 \end{frame}
 
 \end{document}
