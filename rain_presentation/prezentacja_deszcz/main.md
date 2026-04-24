@@ -60,8 +60,8 @@
 - t = l / u
 - Vx* = Vx + u (prędkość względna deszczu w osi x)
 - N = (Vx* * a + Vy * b + Vz * c) * t * k
-- N(u) = ((Vx + u) * a + Vy * b + Vz * c) / u * l / k
-- N(u) = (Vx * a + Vy * b + Vz * c) / u * l / k + a * l / k
+- N(u) = ((Vx + u) * a + Vy * b + Vz * c) / u * l * k
+- N(u) = (Vx * a + Vy * b + Vz * c) / u * l * k + a * l * k
 - Wniosek: im większa prędkość u, tym mniejsza liczba kropli — biec jak najszybciej
 
 ## Slide 20: Plot
@@ -70,12 +70,12 @@
 ## Slide 21–26: Przypadek 2. Wiatr wieje w plecy
 - t = l / u
 - Vx* = Vx - u (prędkość względna deszczu w osi x)
-- N(u) = (|Vx - u| * a + Vy * b + Vz * c) / u * l / k
+- N(u) = (|Vx - u| * a + Vy * b + Vz * c) / u * l * k
 - Podprzypadek Vx > u:
-  - N(u) = (Vx * a + Vy * b + Vz * c) / u * l / k - a * l / k
+  - N(u) = (Vx * a + Vy * b + Vz * c) / u * l * k - a * l * k
   - Wniosek: im większa prędkość, tym mniej kropli — biec jak najszybciej
 - Podprzypadek Vx ≤ u:
-  - N(u) = (-Vx * a + Vy * b + Vz * c) / u * l / k + a * l / k
+  - N(u) = (-Vx * a + Vy * b + Vz * c) / u * l * k + a * l * k
   - Wniosek: im większa prędkość, tym mniej kropli — biec jak najszybciej
 
 ## Slide 27: Plot
